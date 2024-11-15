@@ -1,12 +1,20 @@
-import AuthProvider from "@/provider/AuthProvider";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
+import Topbar from "../components/Headers/Topbar";
 function Home() {
   return (
     <div>
-      Home
-      <div>
-        <AuthProvider />
-      </div>
+      <Topbar />
+      {/* <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn> */}
     </div>
   );
 }
