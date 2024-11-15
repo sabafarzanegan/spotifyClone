@@ -57,11 +57,11 @@
   }
   @font-face {
     font-family: "lale";
-    src: url(../public/fonts/lale/Lalezar-Regular.ttf);
+    src: url(/fonts/lale/Lalezar-Regular.ttf);
   }
   @font-face {
     font-family: "vazir";
-    src: url(../public/fonts/vazir/Vazirmatn-VariableFont_wght.ttf);
+    src: url(/fonts/vazir/Vazirmatn-VariableFont_wght.ttf);
   }
 }
 @layer base {
