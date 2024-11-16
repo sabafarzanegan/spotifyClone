@@ -4,9 +4,16 @@ import { Link } from "react-router-dom";
 import { buttonVariants } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 import PlaylistSkeleton from "./PlaylistSkeleton";
+import { useMusicStore } from "@/stores/useMusicStore";
+import { useEffect } from "react";
 
 function RightSide() {
-  const isLoading = true;
+  const { albums, fetchAlbums, isLoading, error } = useMusicStore();
+  useEffect(() => {
+    fetchAlbums();
+  }, [fetchAlbums]);
+  console.log(albums);
+
   return (
     <div className="h-full flex flex-col gap-y-2">
       {/* top section*/}
@@ -48,7 +55,24 @@ function RightSide() {
           </div>
         </div>
         <ScrollArea className="h-[calc(100vh-300px)]">
-          {isLoading ? <PlaylistSkeleton /> : ""}
+          {isLoading ? (
+            <PlaylistSkeleton />
+          ) : (
+            albums.map((album) => (
+              <Link to={`/albums/${album._id}`} className="flex gap-x-6 mt-2">
+                <div>
+                  <img
+                    src={album.imageUrl}
+                    className="w-10 h-10 rounded-md overflow-hidden"
+                  />
+                </div>
+                <div className="text-zinc-400">
+                  <p className="text-white font-semibold">{album.title}</p>
+                  <span className="text-xs">{album.artist}</span>
+                </div>
+              </Link>
+            ))
+          )}
         </ScrollArea>
       </div>
     </div>
