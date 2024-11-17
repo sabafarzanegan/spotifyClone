@@ -71,4 +71,11 @@
   body {
     @apply bg-background text-foreground font-vazir;
   }
+  .bggradiant {
+    background: linear-gradient(
+      173deg,
+      rgba(46, 4, 108, 1) 0%,
+      rgba(41, 35, 47, 1) 100%
+    );
+  }
 }
