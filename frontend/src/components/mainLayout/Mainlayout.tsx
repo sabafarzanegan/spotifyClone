@@ -5,10 +5,12 @@ import {
 } from "../ui/resizable";
 import { Outlet } from "react-router-dom";
 import RightSide from "./RightSide";
+import AudioPlayer from "../Audio/AudioPlayer";
 
 function Mainlayout() {
   return (
     <div className="h-screen flex flex-col">
+      <AudioPlayer />
       <ResizablePanelGroup
         direction="horizontal"
         className="flex flex-1 overflow-hidden p-2">
@@ -25,13 +27,13 @@ function Mainlayout() {
         </ResizablePanel>
         <ResizableHandle className="w-2 bg-black rounded-md transition-colors" />
 
-        <ResizablePanel
+        {/* <ResizablePanel
           defaultSize={20}
           maxSize={25}
           minSize={0}
           collapsedSize={0}>
           left side
-        </ResizablePanel>
+        </ResizablePanel> */}
       </ResizablePanelGroup>
     </div>
   );
