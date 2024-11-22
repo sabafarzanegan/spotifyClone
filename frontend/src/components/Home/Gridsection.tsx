@@ -12,13 +12,13 @@ interface GridProps {
 function Gridsection({ title, songs }: GridProps) {
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <Button variant="link">مشاهده بیشتر</Button>
         <h2 className="text-right font-semibold text-lg ">{title}</h2>
       </div>
 
       <Suspense fallback={<FeaturedSkeleton />}>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap">
           {songs?.map((song) => (
             <TrendingCard song={song} />
           ))}

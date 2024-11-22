@@ -6,6 +6,7 @@ import {
 import { Outlet } from "react-router-dom";
 import RightSide from "./RightSide";
 import AudioPlayer from "../Audio/AudioPlayer";
+import PlaybackControls from "../Album/PlaybackControls";
 
 function Mainlayout() {
   return (
@@ -35,6 +36,7 @@ function Mainlayout() {
           left side
         </ResizablePanel> */}
       </ResizablePanelGroup>
+      <PlaybackControls />
     </div>
   );
 }

@@ -8,7 +8,7 @@ interface playStore {
   currentIndex: number;
   initializeQueue: (songs: Song[]) => void;
   playAlbum: (songs: Song[] | undefined, startIndex?: number) => void;
-  setCurrentsong: (song: Song | null) => void;
+  setCurrentsong: (song: Song | null | undefined) => void;
   togglePlay: () => void;
   playNext: () => void;
   playPrevious: () => void;
@@ -27,7 +27,7 @@ export const usePlayerStore = create<playStore>((set, get) => ({
     });
   },
   playAlbum: (songs, startIndex = 0) => {
-    if (songs.length === 0) return;
+    if (songs?.length === 0) return;
     const song = songs[startIndex];
     set({
       queue: songs,
