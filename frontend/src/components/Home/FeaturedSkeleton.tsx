@@ -2,7 +2,7 @@ import { Skeleton } from "../ui/skeleton";
 
 function FeaturedSkeleton() {
   return (
-    <div className="grid grid-cols-1 grid-cols-3 ">
+    <div className="grid grid-cols-1 md:grid-cols-3 ">
       {Array.from({ length: 8 }).map((_, i) => (
         <div className="flex items-center space-x-4">
           <Skeleton className="h-12 w-12 rounded-md" />

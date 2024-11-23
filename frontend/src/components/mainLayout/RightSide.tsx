@@ -15,9 +15,11 @@ function RightSide() {
   console.log(albums);
 
   return (
-    <div className="h-full flex flex-col gap-y-2">
-      {/* top section*/}
-      <div className="rounded-lg bg-zinc-800 p-4">
+    <div
+      className="h-full flex flex-col gap-y-2 
+    ">
+      {/* top section */}
+      {/* <div className="rounded-lg bg-zinc-800 p-4">
         <div className="space-y-2">
           <Link
             to="/"
@@ -29,7 +31,7 @@ function RightSide() {
               })
             )}>
             <HomeIcon className="size-6 " />
-            <span>خانه</span>
+            <span className="hidden md:block">خانه</span>
           </Link>
           <Link
             to="/chat"
@@ -41,16 +43,16 @@ function RightSide() {
               })
             )}>
             <MessageCircle className="size-6 " />
-            <span>صفحه چت</span>
+            <span >صفحه چت</span>
           </Link>
         </div>
-      </div>
+      </div> */}
       {/* library section */}
       <div className="flex-1 bg-zinc-800 rounded-lg p-4">
         {/* header */}
         <div className="">
           <div className="flex items-center justify-between">
-            <Library />
+            <Library className="hidden md:block" />
             <span>لیست</span>
           </div>
         </div>
@@ -60,14 +62,16 @@ function RightSide() {
           ) : (
             albums.map((album) => (
               <Link to={`/albums/${album._id}`} className="flex gap-x-6 mt-2">
-                <div>
+                <div className="hidden md:block">
                   <img
                     src={album.imageUrl}
                     className="w-10 h-10 rounded-md overflow-hidden"
                   />
                 </div>
                 <div className="text-zinc-400">
-                  <p className="text-white font-semibold">{album.title}</p>
+                  <p className="text-white font-semibold text-sm md:text-base">
+                    {album.title}
+                  </p>
                   <span className="text-xs">{album.artist}</span>
                 </div>
               </Link>

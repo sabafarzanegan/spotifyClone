@@ -1,6 +1,5 @@
 import { Song } from "@/lib/Types";
-import { Button } from "../ui/button";
-import { Play } from "lucide-react";
+
 import PlayButton from "../Album/PlayButton";
 
 interface FeatureProp {
@@ -15,8 +14,10 @@ function CardFeatur({ songs }: FeatureProp) {
           <img className="h-full " src={songs?.imageUrl} alt={songs?.title} />
         </div>
         <div>
-          <p>{songs?.title}</p>
-          <span className="text-zinc-500">{songs?.artist}</span>
+          <p className="text-sm md:text-base">{songs?.title}</p>
+          <span className="text-zinc-500 text-sm md:text-base">
+            {songs?.artist}
+          </span>
         </div>
         <PlayButton song={songs} />
       </div>

@@ -15,25 +15,30 @@ function Topbar() {
     <nav className="flex items-center justify-between static top-0 right-0 bg-zinc-900/75 py-4 rounded-lg px-4">
       {/* logo */}
       <div>
-        <img src="./images/logo.png" alt="logo" className=" h-8" />
+        <Link to="/">
+          <img src="./images/logo.png" alt="logo" className=" h-5 md:h-8" />
+        </Link>
       </div>
       {/* login button */}
       <div className="flex items-center">
         {isAdmin && (
           <Button
-            className="mr-4
+            className="mr-2 text-sm md:text-base px-1
           ">
             <Link to="/admin">صفحه ادمین</Link>
           </Button>
         )}
         <div className="flex items-center gap-x-2">
-          <SignedIn>
-            <SignOutButton>
-              <Button className="" variant="destructive">
-                خروج
-              </Button>
-            </SignOutButton>
-          </SignedIn>
+          <div className="hidden md:block">
+            <SignedIn>
+              <SignOutButton>
+                <Button className="" variant="destructive">
+                  خروج
+                </Button>
+              </SignOutButton>
+            </SignedIn>
+          </div>
+
           <SignedOut>
             <SignInBtn />
           </SignedOut>

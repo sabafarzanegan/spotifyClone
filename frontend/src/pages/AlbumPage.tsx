@@ -36,7 +36,7 @@ function AlbumPage() {
     <section className="h-full ">
       <div className="h-full bggradiant rounded-lg p-8">
         {/* top section */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center md:justify-between  flex-wrap">
           <div>
             <img
               src={currentAlbum?.imageUrl}
@@ -46,8 +46,8 @@ function AlbumPage() {
           </div>
           <div className="flex flex-col gap-y-4">
             <p className="font-semibold text-xl text-right">آلبوم</p>
-            <h2 className="text-6xl">{currentAlbum?.title}</h2>
-            <div className="flex items-center justify-between">
+            <h2 className="text-3xl md:text-5xl ">{currentAlbum?.title}</h2>
+            <div className="flex items-center justify-between gap-4">
               <p>{currentAlbum?.artist}</p>
               <span>
                 <span>آهنگ</span>
@@ -66,10 +66,8 @@ function AlbumPage() {
           </div>
         </div>
         {/* bottom section */}
-        <div className="mt-4">
-          <ScrollArea className="h-[calc(100vh-300px)]">
-            <Songtable handlePlay={handlePlay} songs={currentAlbum?.songs} />
-          </ScrollArea>
+        <div className="">
+          <Songtable handlePlay={handlePlay} songs={currentAlbum?.songs} />
         </div>
       </div>
     </section>

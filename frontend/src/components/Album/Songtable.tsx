@@ -9,6 +9,7 @@ import {
 } from "../ui/table";
 import { Song } from "@/lib/Types";
 import { usePlayerStore } from "@/stores/usePlayerAudio";
+
 interface propsTable {
   songs: Song[] | undefined;
   handlePlay: (index: number) => void;
@@ -16,8 +17,8 @@ interface propsTable {
 function Songtable({ songs, handlePlay }: propsTable) {
   const { currentSong, isPlaying } = usePlayerStore();
   return (
-    <div>
-      <Table>
+    <div className="h-[150px] overflow-y-scroll">
+      <Table className="w-full border-collapse">
         <TableHeader>
           <TableRow>
             <TableHead>#</TableHead>
@@ -29,6 +30,7 @@ function Songtable({ songs, handlePlay }: propsTable) {
             </TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
           {songs?.map((song, index) => {
             const isplayingSong = currentSong?._id === song._id;

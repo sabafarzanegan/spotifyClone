@@ -15,7 +15,7 @@ function Mainlayout() {
       <ResizablePanelGroup
         direction="horizontal"
         className="flex flex-1 overflow-hidden p-2">
-        <ResizablePanel defaultSize={20} minSize={10} maxSize={30}>
+        <ResizablePanel defaultSize={20} minSize={20} maxSize={20}>
           <RightSide />
         </ResizablePanel>
         <ResizableHandle className="w-2 bg-black rounded-md transition-colors" />

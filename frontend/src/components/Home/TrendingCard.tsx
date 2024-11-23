@@ -12,7 +12,7 @@ function TrendingCard({ song }: { song: Song }) {
           className="h-32 w-full mb-4 rounded-md "
         />
       </div>
-      <div className="">
+      <div className="flex items-center justify-between">
         <p>{song.title}</p>
         <span className="text-zinc-500">{song.artist}</span>
         <PlayButton song={song} />
