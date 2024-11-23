@@ -14,10 +14,11 @@ function App() {
       <Routes>
         <Route element={<Mainlayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Adminpage />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/albums/:albumId" element={<AlbumPage />} />
         </Route>
+        <Route path="/admin" element={<Adminpage />} />
+
         <Route
           path="/sso-callback"
           element={

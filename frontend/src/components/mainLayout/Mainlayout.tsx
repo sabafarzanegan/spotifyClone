@@ -27,14 +27,6 @@ function Mainlayout() {
           <Outlet />
         </ResizablePanel>
         <ResizableHandle className="w-2 bg-black rounded-md transition-colors" />
-
-        {/* <ResizablePanel
-          defaultSize={20}
-          maxSize={25}
-          minSize={0}
-          collapsedSize={0}>
-          left side
-        </ResizablePanel> */}
       </ResizablePanelGroup>
       <PlaybackControls />
     </div>

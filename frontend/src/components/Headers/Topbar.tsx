@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function Topbar() {
   const { isAdmin } = useAuthStore();
   return (
-    <nav className="flex items-center justify-between static top-0 right-0 bg-zinc-900/75 py-4 rounded-lg">
+    <nav className="flex items-center justify-between static top-0 right-0 bg-zinc-900/75 py-4 rounded-lg px-4">
       {/* logo */}
       <div>
         <img src="./images/logo.png" alt="logo" className=" h-8" />
