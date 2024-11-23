@@ -1,7 +1,8 @@
+import AddDialog from "@/components/Admin/AddDialog";
+import AddDialogAlbum from "@/components/Admin/AddDialogAlbum";
 import StatsContainer from "@/components/Admin/StatsContainer";
 import TableContent from "@/components/Admin/TableContent";
 import Topbar from "@/components/Headers/Topbar";
-import { Button } from "@/components/ui/button";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMusicStore } from "@/stores/useMusicStore";
@@ -9,7 +10,7 @@ import { Album, Music } from "lucide-react";
 import { useEffect } from "react";
 
 function Adminpage() {
-  const { fetchStats, fetchSongs, fetchAlbums } = useMusicStore();
+  const { fetchStats, fetchSongs, fetchAlbums, songs } = useMusicStore();
   useEffect(() => {
     fetchStats();
     fetchSongs();
@@ -40,13 +41,13 @@ function Adminpage() {
                   </span>
                 </TabsTrigger>
               </div>
-
-              <Button>Add</Button>
             </TabsList>
             <TabsContent value="songs">
+              <AddDialog />
               <TableContent title="songs" type="songs" />
             </TabsContent>
             <TabsContent value="Albums">
+              <AddDialogAlbum />
               <TableContent title="albums" type="albums" />
             </TabsContent>
           </Tabs>
