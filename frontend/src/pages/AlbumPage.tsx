@@ -1,5 +1,4 @@
 import Songtable from "@/components/Album/Songtable";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { convertToFarsi } from "@/lib/helper";
 import { useMusicStore } from "@/stores/useMusicStore";
 import { usePlayerStore } from "@/stores/usePlayerAudio";
@@ -11,7 +10,7 @@ function AlbumPage() {
   const param = useParams();
   const { currentSong, isPlaying, playAlbum, togglePlay } = usePlayerStore();
 
-  const { isLoading, currentAlbum, fetchAlbumById } = useMusicStore();
+  const { currentAlbum, fetchAlbumById } = useMusicStore();
   useEffect(() => {
     if (param.albumId) {
       fetchAlbumById(param.albumId);

@@ -10,7 +10,7 @@ import { Album, Music } from "lucide-react";
 import { useEffect } from "react";
 
 function Adminpage() {
-  const { fetchStats, fetchSongs, fetchAlbums, songs } = useMusicStore();
+  const { fetchStats, fetchSongs, fetchAlbums } = useMusicStore();
   useEffect(() => {
     fetchStats();
     fetchSongs();

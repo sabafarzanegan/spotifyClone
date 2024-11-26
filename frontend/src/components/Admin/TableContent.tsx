@@ -4,10 +4,10 @@ import SongsTable from "./SongsTable";
 
 interface TableProps {
   type: "songs" | "albums";
-  title: string;
+  title?: string;
 }
 
-function TableContent({ type, title }: TableProps) {
+function TableContent({ type }: TableProps) {
   const { songs, albums } = useMusicStore();
 
   return (

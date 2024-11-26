@@ -128,7 +128,7 @@ export const useMusicStore = create<musicStore>((set) => ({
   deletSong: async (id: string) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axiosInstance.delete(`/admin/songs/${id}`);
+      await axiosInstance.delete(`/admin/songs/${id}`);
       set((state) => ({
         songs: state.songs.filter((song) => song._id !== id),
       }));
