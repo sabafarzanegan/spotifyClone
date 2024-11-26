@@ -1,10 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import AuthcallbackPage from "./pages/AuthcallbackPage";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import Mainlayout from "./components/mainLayout/Mainlayout";
-import Chat from "./pages/Chat";
 import AlbumPage from "./pages/AlbumPage";
 import Adminpage from "./pages/Adminpage";
 
@@ -14,7 +12,6 @@ function App() {
       <Routes>
         <Route element={<Mainlayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
           <Route path="/albums/:albumId" element={<AlbumPage />} />
         </Route>
         <Route path="/admin" element={<Adminpage />} />
