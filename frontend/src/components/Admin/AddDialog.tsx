@@ -18,6 +18,7 @@ import {
 } from "../ui/select";
 import { useRef, useState } from "react";
 import { useMusicStore } from "@/stores/useMusicStore";
+
 interface NewSong {
   title: string;
   artist: string;
@@ -83,9 +84,10 @@ function AddDialog() {
         audio: null,
         image: null,
       });
-      toast.success("Song added successfully");
+      toast.success("آهنگ باموفقیت اضافه شد");
+      window.location.reload();
     } catch (error: any) {
-      toast.error("Failed to add song: " + error.message);
+      toast.error("خطا" + error.message);
       console.log(error);
     } finally {
       setIsLoading(false);

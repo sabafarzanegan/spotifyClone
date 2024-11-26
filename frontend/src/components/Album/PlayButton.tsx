@@ -12,7 +12,7 @@ function PlayButton({ song }: { song: Song | null | undefined }) {
     else setCurrentsong(song);
   };
   return (
-    <Button onClick={handelPlay} className="h-full" variant="default">
+    <Button onClick={handelPlay} className="h-full w-full" variant="default">
       {isPlaying && isCurrentSong ? <Pause /> : <Play />}
     </Button>
   );

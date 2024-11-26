@@ -38,7 +38,7 @@ function SongsTable({ data }: { data: Song[] }) {
               </TableCell>
               <TableCell>{song.title}</TableCell>
               <TableCell>{song.artist}</TableCell>
-              <TableCell>{song.createdAt.substring(0, 10)}</TableCell>
+              <TableCell>{song.createdAt.substring(0, 4)}</TableCell>
               <TableCell>
                 <Button
                   variant="destructive"

@@ -15,7 +15,7 @@ interface StatsProps {
 
 function StatsCard({ data }: StatsProps) {
   return (
-    <Card className="w-[200px] py-4 ">
+    <Card className="w-[200px] py-4 flex-1 ">
       <CardContent className="flex items-center gap-x-6">
         <div>
           <p>{<data.icon className={`${data.color} w-10 h-10`} />}</p>

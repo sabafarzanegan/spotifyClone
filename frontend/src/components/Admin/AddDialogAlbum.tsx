@@ -10,6 +10,7 @@ import { axiosInstance } from "@/lib/axios";
 import { Plus, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddAlbumDialog = () => {
   const [albumDialogOpen, setAlbumDialogOpen] = useState(false);
@@ -23,7 +24,7 @@ const AddAlbumDialog = () => {
   });
 
   const [imageFile, setImageFile] = useState<File | null>(null);
-
+  const navigate = useNavigate();
   const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -59,6 +60,7 @@ const AddAlbumDialog = () => {
       setImageFile(null);
       setAlbumDialogOpen(false);
       toast.success("آلبوم با موفقیت ساخته شد");
+      navigate(0);
     } catch (error: any) {
       toast.error("خطا: " + error.message);
     } finally {

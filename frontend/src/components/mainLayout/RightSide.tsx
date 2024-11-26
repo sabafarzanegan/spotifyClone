@@ -14,10 +14,9 @@ function RightSide() {
 
   return (
     <div
-      className="h-full flex flex-col gap-y-2 
+      className="h-screen flex flex-col gap-y-2 w-[600px]
     ">
-      <div className="flex-1 bg-zinc-800 rounded-lg p-4">
-        {/* header */}
+      <div className="h-full bg-zinc-800 rounded-lg p-4">
         <div className="">
           <div className="flex items-center justify-between">
             <Library className="hidden md:block" />
@@ -30,7 +29,7 @@ function RightSide() {
           ) : (
             albums.map((album) => (
               <Link to={`/albums/${album._id}`} className="flex gap-x-6 mt-2">
-                <div className="hidden md:block">
+                <div>
                   <img
                     src={album.imageUrl}
                     className="w-10 h-10 rounded-md overflow-hidden"

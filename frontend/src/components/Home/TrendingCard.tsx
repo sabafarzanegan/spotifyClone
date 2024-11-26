@@ -9,12 +9,14 @@ function TrendingCard({ song }: { song: Song }) {
         <img
           src={song.imageUrl}
           alt={song.title}
-          className="h-32 w-full mb-4 rounded-md "
+          className=" w-full  mb-4 rounded-md "
         />
       </div>
-      <div className="flex items-center justify-between">
-        <p>{song.title}</p>
-        <span className="text-zinc-500">{song.artist}</span>
+      <div className="space-y-2">
+        <div>
+          <p>{song.title}</p>
+          <span className="text-zinc-500">{song.artist}</span>
+        </div>
         <PlayButton song={song} />
       </div>
     </div>

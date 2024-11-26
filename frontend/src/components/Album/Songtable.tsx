@@ -24,7 +24,7 @@ function Songtable({ songs, handlePlay }: propsTable) {
             <TableHead>#</TableHead>
 
             <TableHead>نام</TableHead>
-            <TableHead>تاریخ انتشار</TableHead>
+            <TableHead className="text-sm md:text-base">تاریخ انتشار</TableHead>
             <TableHead>
               <Clock className="size-4" />
             </TableHead>
@@ -52,11 +52,15 @@ function Songtable({ songs, handlePlay }: propsTable) {
                       alt={song.title}
                       className="h-8 w-8 rounded-md"
                     />
-                    <span>{song.title}</span>
+                    <span className="text-xs md:text-sm">{song.title}</span>
                   </div>
                 </TableCell>
-                <TableCell>{song.createdAt.substring(0, 10)}</TableCell>
-                <TableCell>{song.duration}</TableCell>
+                <TableCell className="text-xs md:text-sm">
+                  {song.createdAt.substring(0, 4)}
+                </TableCell>
+                <TableCell className="text-xs md:text-sm">
+                  {song.duration}
+                </TableCell>
               </TableRow>
             );
           })}

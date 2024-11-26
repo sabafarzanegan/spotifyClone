@@ -33,7 +33,7 @@ function StatsContainer() {
   ];
 
   return (
-    <div className="flex items-center justify-center md:justify-between flex-wrap gap-y-2  px-4">
+    <div className="flex items-center justify-center md:justify-between flex-wrap gap-2  px-4">
       {statsArray.map((stats) => (
         <StatsCard data={stats} />
       ))}

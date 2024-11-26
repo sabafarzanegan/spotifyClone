@@ -1,35 +1,28 @@
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "../ui/resizable";
 import { Outlet } from "react-router-dom";
-import RightSide from "./RightSide";
 import AudioPlayer from "../Audio/AudioPlayer";
 import PlaybackControls from "../Album/PlaybackControls";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { AppSidebar } from "./AppSidebar";
+import { Separator } from "../ui/separator";
 
 function Mainlayout() {
   return (
-    <div className="h-screen flex flex-col">
+    <>
       <AudioPlayer />
-      <ResizablePanelGroup
-        direction="horizontal"
-        className="flex flex-1 overflow-hidden p-2">
-        <ResizablePanel defaultSize={20} minSize={20} maxSize={20}>
-          <RightSide />
-        </ResizablePanel>
-        <ResizableHandle className="w-2 bg-black rounded-md transition-colors" />
-        <ResizablePanel
-          defaultSize={60}
-          minSize={60}
-          maxSize={80}
-          className="px-2">
-          <Outlet />
-        </ResizablePanel>
-        <ResizableHandle className="w-2 bg-black rounded-md transition-colors" />
-      </ResizablePanelGroup>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarInset>
+          <header className="flex sticky top-0 bg-background h-16 shrink-0 items-center gap-2 border-b px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator orientation="vertical" className="mr-2 h-4" />
+          </header>
+          <div className="flex flex-1 flex-col gap-4 p-4">
+            <Outlet />
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
       <PlaybackControls />
-    </div>
+    </>
   );
 }
 

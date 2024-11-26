@@ -2,9 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { usePlayerStore } from "@/stores/usePlayerAudio";
 import {
-  Laptop2,
-  ListMusic,
-  Mic2,
   Pause,
   Play,
   Repeat,
@@ -62,7 +59,7 @@ const PlaybackControls = () => {
   };
 
   return (
-    <footer className="h-20 sm:h-24 bg-zinc-900 border-t border-zinc-800 px-4">
+    <footer className="w-full sticky  py-2 bottom-0 right-0  bg-zinc-900 border-t border-zinc-800 px-4">
       <div className="flex justify-between items-center h-full max-w-[1800px] mx-auto">
         {/* currently playing song */}
         <div className="hidden sm:flex items-center gap-4 min-w-[180px] w-[30%]">
@@ -147,25 +144,6 @@ const PlaybackControls = () => {
         </div>
         {/* volume controls */}
         <div className="hidden sm:flex items-center gap-4 min-w-[180px] w-[30%] justify-end">
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400">
-            <Mic2 className="h-4 w-4" />
-          </Button>
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400">
-            <ListMusic className="h-4 w-4" />
-          </Button>
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400">
-            <Laptop2 className="h-4 w-4" />
-          </Button>
-
           <div className="flex items-center gap-2">
             <Button
               size="icon"
