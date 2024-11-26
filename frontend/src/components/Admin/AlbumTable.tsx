@@ -13,7 +13,6 @@ import { Loader2, Trash } from "lucide-react";
 
 function AlbumTable({ data }: { data: Album[] }) {
   const { isLoading, deleteAlbum } = useMusicStore();
-  console.log(data);
 
   return (
     <Table>
@@ -41,8 +40,13 @@ function AlbumTable({ data }: { data: Album[] }) {
               <TableCell>{song.artist}</TableCell>
               <TableCell>{song.releaseYear}</TableCell>
               <TableCell>
-                <Button variant="destructive">
-                  <Trash onClick={() => deleteAlbum(song._id)} />
+                <Button
+                  onClick={() => {
+                    deleteAlbum(song._id);
+                    console.log("delet album");
+                  }}
+                  variant="default">
+                  <Trash />
                 </Button>
               </TableCell>
             </TableRow>

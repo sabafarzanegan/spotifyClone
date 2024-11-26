@@ -4,7 +4,7 @@ import StatsCard from "./StatsCard";
 
 function StatsContainer() {
   const { stats } = useMusicStore();
-  console.log(stats);
+
   const statsArray = [
     {
       title: "آلبوم ها",

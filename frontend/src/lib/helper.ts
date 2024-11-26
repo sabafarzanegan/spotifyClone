@@ -12,11 +12,7 @@ const englishToFarsi: { [key: string]: string } = {
 };
 
 export function convertToFarsi(number?: number): string {
-  if (number === undefined) {
-    throw new Error("The input number is undefined");
-  }
-
-  const formattedNumber = new Intl.NumberFormat("fa-IR").format(number);
+  const formattedNumber = new Intl.NumberFormat("fa-IR").format(number || 0);
 
   return formattedNumber
     .split("")
