@@ -1,12 +1,13 @@
 import { useMusicStore } from "@/stores/useMusicStore";
 import Topbar from "../components/Headers/Topbar";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import Featuredsection from "@/components/Home/Featuredsection";
 import Gridsection from "@/components/Home/Gridsection";
 
 import { usePlayerStore } from "@/stores/usePlayerAudio";
 
 function Home() {
+  const { initializeQueue } = usePlayerStore();
   const {
     madeForYouSongs,
     trendingSongs,
@@ -15,23 +16,47 @@ function Home() {
     fetchForYouSongs,
     fetchFeaturedSongs,
   } = useMusicStore();
-  useEffect(() => {
-    fetchForYouSongs();
-    fetchFeaturedSongs();
-    fetchTrendingSongs();
-  }, [fetchFeaturedSongs, fetchForYouSongs, fetchTrendingSongs]);
-  const { initializeQueue } = usePlayerStore();
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [madeForYou, trending, featured] = await Promise.all([
+          fetchForYouSongs(),
+          fetchTrendingSongs(),
+          fetchFeaturedSongs(),
+        ]);
+
+        const allSongs = [...featured, ...madeForYou, ...trending];
+        initializeQueue(allSongs);
+      } catch (error) {
+        console.error("Error fetching songs:", error);
+      }
+    };
+
+    fetchData();
+  }, [
+    fetchForYouSongs,
+    fetchTrendingSongs,
+    fetchFeaturedSongs,
+    initializeQueue,
+  ]);
+
+  const allSongs = useMemo(() => {
     if (
-      madeForYouSongs.length > 0 &&
-      featuredSongs.length > 0 &&
-      trendingSongs.length > 0
+      madeForYouSongs.length &&
+      featuredSongs.length &&
+      trendingSongs.length
     ) {
-      const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
+      return [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
+    }
+    return [];
+  }, [madeForYouSongs, featuredSongs, trendingSongs]);
+
+  useEffect(() => {
+    if (allSongs.length) {
       initializeQueue(allSongs);
     }
-  }, [initializeQueue, madeForYouSongs, trendingSongs, featuredSongs]);
+  }, [allSongs, initializeQueue]);
 
   return (
     <div className="h-full">

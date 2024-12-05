@@ -10,7 +10,7 @@ interface FeatureProp {
 function CardFeatur({ songs }: FeatureProp) {
   return (
     <>
-      <Card className="w-[300px]">
+      <Card className="w-[300px] mx-auto">
         <CardHeader>
           <img src={songs?.imageUrl} alt="" className="rounded-md h-full" />
         </CardHeader>

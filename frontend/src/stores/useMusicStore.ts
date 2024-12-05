@@ -16,9 +16,9 @@ interface musicStore {
 
   fetchAlbums: () => Promise<void>;
   fetchAlbumById: (id: string) => Promise<void>;
-  fetchForYouSongs: () => Promise<void>;
-  fetchTrendingSongs: () => Promise<void>;
-  fetchFeaturedSongs: () => Promise<void>;
+  fetchForYouSongs: () => Promise<Song[]>;
+  fetchTrendingSongs: () => Promise<Song[]>;
+  fetchFeaturedSongs: () => Promise<Song[]>;
   fetchStats: () => Promise<void>;
   fetchSongs: () => Promise<void>;
   deletSong: (id: string) => Promise<void>;
@@ -74,6 +74,7 @@ export const useMusicStore = create<musicStore>((set) => ({
     try {
       const res = await axiosInstance.get("/songs/made-for-you");
       set({ madeForYouSongs: res.data });
+      return res.data;
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
@@ -85,6 +86,7 @@ export const useMusicStore = create<musicStore>((set) => ({
     try {
       const res = await axiosInstance.get("/songs/trending");
       set({ trendingSongs: res.data });
+      return res.data;
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
@@ -96,6 +98,7 @@ export const useMusicStore = create<musicStore>((set) => ({
     try {
       const res = await axiosInstance.get("/songs/featured");
       set({ featuredSongs: res.data });
+      return res.data;
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {

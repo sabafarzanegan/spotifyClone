@@ -15,7 +15,7 @@ function Featuredsection() {
         موزیک های برتر
       </h2>
       <Suspense fallback={<FeaturedSkeleton />}>
-        <div className="grid grid-cols-1 md:grid-cols-4 mt-4 gap-2 ">
+        <div className="flex flex-wrap  items-center justify-end mt-2 gap-2 ">
           {featuredSongs.map((song) => (
             <CardFeatur songs={song} />
           ))}
